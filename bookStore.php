@@ -1,24 +1,5 @@
-[21:58, 4/24/2024] Apoorva Khajbage: <?php
-session_start();
 
-// Function to display the entire grade card of all students
-function displayGradeCard($students) {
-    if (!empty($students)) {
-        echo "<div><h2>Grade Card</h2><table border='1'><tr><th>Name</th><th>Grade</th><th>Attendance</th></tr>";
-        foreach ($students as $name => $data) {
-            echo "<tr><td>$name</td><td>{$data['grade']}</td><td>{$data['attendance']}%</td></tr>";
-        }
-        echo "</table></div>";
-    } else {
-        echo "<div class='message'><p>No student data available.</p></div>";
-    }
-}
-
-// Function to calculate average grade
-function calculateAverage($students) {
-    $totalGrades = array_sum(array_column($students, 'grade'));
-    $averageGrade = count($students) > 0 ? $totalGrades / count($studen…
-[22:49, 4/24/2024] Apoorva Khajbage: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -198,7 +179,7 @@ function calculateAverage($students) {
 </html>
 
 
-// CREATE TABLE users (
+<!-- // CREATE TABLE users (
 //     id INT AUTO_INCREMENT PRIMARY KEY,
 //     username VARCHAR(255) NOT NULL UNIQUE,
 //     password VARCHAR(255) NOT NULL
@@ -209,4 +190,4 @@ function calculateAverage($students) {
 //     book_name VARCHAR(255) NOT NULL,
 //     author VARCHAR(255) NOT NULL,
 //     price DECIMAL(10, 2) NOT NULL
-// );
+// ); -->
