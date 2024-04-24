@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Time Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        
+        .timetable {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 800px;
+        }
+        
+        .timetable th, .timetable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .timetable th {
+            background-color: #f2f2f2;
+        }
+        
+        .timetable td {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <table class="timetable">
+        <thead>
+            <tr>
+                <th>Train Number</th>
+                <th>Train Name</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Departure Day</th>
+                <th>Arrival Day</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>12345</td>
+                <td>Express</td>
+                <td>08:00 AM</td>
+                <td>10:30 AM</td>
+                <td>Monday</td>
+                <td>Monday</td>
+            </tr>
+            <tr>
+                <td>54321</td>
+                <td>Superfast</td>
+                <td>10:30 AM</td>
+                <td>01:00 PM</td>
+                <td>Wednesday</td>
+                <td>Wednesday</td>
+            </tr>
+            <tr>
+                <td>98765</td>
+                <td>Local</td>
+                <td>02:00 PM</td>
+                <td>04:30 PM</td>
+                <td>Friday</td>
+                <td>Friday</td>
+            </tr>
+            <tr>
+                <td>24680</td>
+                <td>Express</td>
+                <td>05:00 PM</td>
+                <td>07:30 PM</td>
+                <td>Sunday</td>
+                <td>Sunday</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

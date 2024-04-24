@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TY Time Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        
+        .timetable {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 600px;
+        }
+        
+        .timetable th, .timetable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .timetable th {
+            background-color: #f2f2f2;
+        }
+        
+        .timetable td {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <table class="timetable">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Time Slot</th>
+                <th>Subject Name</th>
+                <th>Faculty Initials</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday</td>
+                <td>9:00 AM - 10:00 AM</td>
+                <td>Mathematics</td>
+                <td>AB</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>10:00 AM - 11:00 AM</td>
+                <td>Physics</td>
+                <td>CD</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>11:00 AM - 12:00 PM</td>
+                <td>Chemistry</td>
+                <td>EF</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td>1:00 PM - 2:00 PM</td>
+                <td>Biology</td>
+                <td>GH</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>2:00 PM - 3:00 PM</td>
+                <td>History</td>
+                <td>IJ</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

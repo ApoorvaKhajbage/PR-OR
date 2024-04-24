@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 40px 20px 0 20px;
+        }
+        .container .heading {
+            width: 50%;
+            padding-bottom: 50px;
+        }
+        .container .heading h3 {
+            font-size: 3em;
+            font-weight: bolder;
+            border-bottom: 3px solid #222;
+            padding-bottom: 10px;
+        }
+        .container .heading h3 span {
+            font-weight: 100;
+        }
+        .container .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .container .box .video {
+            width: 300px;
+            margin: 10px;
+        }
+        .container .box .video iframe {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            <h3>Video <span>Gallery</span></h3>
+        </div>
+        <div class="box">
+            <!-- Video 1 -->
+            <div class="video">
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/Gu2cPPB24HE?si=OErmsUnIVYSrD1Ht" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/koRbYQyPU0U?si=8yh2lOjrJyuuzf-R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/3Q8u7nKKSiY?si=ZBzdJNfQNIXFGH4N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <!-- Video 2 -->
+            <div class="video">
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/lhitM_N6dJk?si=uVCDj81qMTpgJ6xn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/4hXYRXaJdtk?si=m2xbUGxoPhUeYezq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <!-- Add more videos as needed -->
+        </div>
+    </div>
+</body>
+</html>
