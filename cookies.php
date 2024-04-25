@@ -49,6 +49,8 @@ while ($row = mysqli_fetch_array($retval, MYSQLI_ASSOC)) {
 }
 
 // Close the connection
+session_unset();
+session_destroy();
 mysqli_close($con);
 ?>
 
