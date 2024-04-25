@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
         $row = $result->fetch_assoc();
         $_SESSION["username"] = $username;
         $_SESSION["role"] = $row["role"];
-        header("Location: dashboard.php");
+        header("Location: user_dashboard.php");
         exit;
     } else {
         $login_error = "Invalid username or password";

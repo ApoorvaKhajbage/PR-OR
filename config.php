@@ -27,4 +27,8 @@ CREATE TABLE complaints (
     status ENUM('pending', 'resolved') NOT NULL DEFAULT 'pending',
     user_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
-); -->
+); 
+INSERT INTO users (username, email, password, role) 
+VALUES ('admin', 'admin@example.com', 'admin_password', 'admin');
+
+-->
