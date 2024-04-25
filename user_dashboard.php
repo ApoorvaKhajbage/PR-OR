@@ -7,6 +7,17 @@ if (!isset($_SESSION["username"])) {
     header("Location: login_register.php");
     exit;
 }
+if(isset($_POST["logout"])) {
+    // Unset all of the session variables
+    $_SESSION = array();
+
+    // Destroy the session
+    session_destroy();
+
+    // Redirect to the login page
+    header("Location: login_register.php");
+    exit;
+}
 
 // Add Complaint
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_complaint"])) {
@@ -131,6 +142,10 @@ $conn->close();
 </head>
 <body>
     <div class="container">
+        <!-- Logout button -->
+        <form action="" method="post" style="text-align: right; margin-bottom: 20px;">
+            <button type="submit" name="logout">Logout</button>
+        </form>
         <h2>Welcome, <?php echo $_SESSION["username"]; ?></h2>
 
         <div class="add-complaint-section">

@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $sql = "SELECT id, role FROM users WHERE username='$username' AND password='$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 1) {
@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
         $login_error = "Invalid username or password";
     }
 }
+
 
 // User Registration
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["register"])) {
@@ -129,6 +130,8 @@ a:hover {
                 <button type="submit" name="login">Login</button>
             </form>
             <p>Don't have an account? <a href="#register">Register here</a></p>
+            <!-- Link for admin login -->
+            <p>Are you an admin? <a href="admin_dashboard.php">Click here to log in as an Admin</a></p>
 
             <?php if(isset($login_error)) { ?>
                 <p><?php echo $login_error; ?></p>

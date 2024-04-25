@@ -1,10 +1,18 @@
-Certainly! Here's the updated `admin_dashboard.php` file with included CSS styling:
-
-```php
 <?php
 session_start();
 require_once "config.php";
+// logout 
+if(isset($_POST["logout"])) {
+    // Unset all of the session variables
+    $_SESSION = array();
 
+    // Destroy the session
+    session_destroy();
+
+    // Redirect to the login page
+    header("Location: login_register.php");
+    exit;
+}
 // Admin Login
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["admin_login"])) {
     $username = $_POST["username"];
@@ -35,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["resolve_complaint"])) 
 
 // Fetch Complaints
 $complaints = [];
-if ($_SESSION["role"] == "admin") {
+if (isset($_SESSION["role"]) && $_SESSION["role"] == "admin") {
     $sql = "SELECT * FROM complaints";
     $result = $conn->query($sql);
 
@@ -148,42 +156,48 @@ $conn->close();
                     <input type="password" name="password" placeholder="Password" required><br>
                     <button type="submit" name="admin_login">Login</button>
                 </form>
+                <!-- Link for admin login -->
+            <p>Not an admin? <a href="login_register.php">Click here to log in as a user</a></p>
                 <?php if(isset($login_error)) { ?>
                     <p><?php echo $login_error; ?></p>
                 <?php } ?>
             </div>
         <?php } else { ?>
+            <!-- Logout button -->
+        <form action="" method="post" style="text-align: right; margin-bottom: 20px;">
+            <button type="submit" name="logout">Logout</button>
+        </form>
             <h2>Welcome, <?php echo $_SESSION["username"]; ?></h2>
             <?php if($_SESSION["role"] == "admin") { ?>
                 <?php if(count($complaints) > 0) { ?>
-                    <?
-                                        foreach($complaints as $complaint) { ?>
-                                            <div class="complaint">
-                                                <h4>Subject: <?php echo $complaint['subject']; ?></h4>
-                                                <p>Description: <?php echo $complaint['description']; ?></p>
-                                                <p>Status: <?php echo $complaint['status']; ?></p>
-                                                <?php if($complaint['status'] == 'pending') { ?>
-                                                    <form action="" method="POST">
-                                                        <input type="hidden" name="complaint_id" value="<?php echo $complaint['id']; ?>">
-                                                        <button type="submit" name="resolve_complaint" class="resolve-btn">Resolve</button>
-                                                    </form>
-                                                <?php } ?>
-                                            </div>
-                                        <?php } ?>
-                                    <?php } else { ?>
-                                        <p>No complaints found</p>
-                                    <?php } ?>
-                                <?php } else { ?>
-                                    <p>You are not authorized to access this page.</p>
-                                <?php } ?>
-                                <?php if(isset($resolve_success)) { ?>
-                                    <p class="message"><?php echo $resolve_success; ?></p>
-                                <?php } ?>
-                                <?php if(isset($resolve_error)) { ?>
-                                    <p class="message"><?php echo $resolve_error; ?></p>
-                                <?php } ?>
+                    <?php foreach($complaints as $complaint) { ?>
+                        <div class="complaint">
+                            <h4>Subject: <?php echo $complaint['subject']; ?></h4>
+                            <p>Description: <?php echo $complaint['description']; ?></p>
+                            <p>Status: <?php echo $complaint['status']; ?></p>
+                            <?php if($complaint['status'] == 'pending') { ?>
+                                <form action="" method="POST">
+                                    <input type="hidden" name="complaint_id" value="<?php echo $complaint['id']; ?>">
+                                    <button type="submit" name="resolve_complaint" class="resolve-btn">Resolve</button>
+                                </form>
                             <?php } ?>
                         </div>
-                    </body>
-                    </html>
+                    <?php } ?>
+                <?php } else { ?>
+                    <p>No complaints found</p>
+                <?php } ?>
+            <?php } else { ?>
+                <p>You are not authorized to access this page.</p>
+            <?php } ?>
+            <?php if(isset($resolve_success)) { ?>
+                <p class="message"><?php echo $resolve_success; ?></p>
+            <?php } ?>
+            <?php if(isset($resolve_error)) { ?>
+                <p class="message"><?php echo $resolve_error; ?></p>
+            <?php } ?>
+        <?php } ?>
+    </div>
+</body>
+</html>
+
                     
